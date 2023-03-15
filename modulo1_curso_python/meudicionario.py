@@ -1,0 +1,20 @@
+meu_dicionario = {'a': 1, 'b': 2, 'c': 3}
+print(meu_dicionario['a'])
+print(meu_dicionario['b'])
+print(meu_dicionario['c'])
+print(meu_dicionario)
+meu_dicionario['d'] = 4
+print(meu_dicionario['d'])
+print(meu_dicionario)
+print(meu_dicionario.get('e', -1))
+print(meu_dicionario.get('e'))
+print(meu_dicionario.get('d', -1))
+print(list(meu_dicionario.items()))
+print(list(meu_dicionario.keys()))
+print(list(meu_dicionario.values()))
+dic_listas = {'lista':[]}
+item1 = input()
+dic_listas['lista'].append(item1)
+print(dic_listas)
+meu_dicionario.pop('c')
+print(meu_dicionario)
