@@ -13,8 +13,11 @@ print(list(meu_dicionario.items()))
 print(list(meu_dicionario.keys()))
 print(list(meu_dicionario.values()))
 dic_listas = {'lista':[]}
-item1 = input()
+item1 = input("Atribua um elemento a lista: ")
 dic_listas['lista'].append(item1)
 print(dic_listas)
-meu_dicionario.pop('c')
+remover = input("Digite uma chave para remover: ")
+meu_dicionario.pop(remover)
 print(meu_dicionario)
+for chave,valor in meu_dicionario.items():
+    print(f'Chave é {chave} e o valor é {valor}')
