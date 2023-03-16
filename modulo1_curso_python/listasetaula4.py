@@ -4,4 +4,3 @@ print(type(lista))
 print(lista)
 print(type(lista_unica))
 print(lista_unica)
-
