@@ -12,8 +12,9 @@ print(meu_dicionario.get('d', -1))
 print(list(meu_dicionario.items()))
 print(list(meu_dicionario.keys()))
 print(list(meu_dicionario.values()))
+from funcaolista import cadastro
 dic_listas = {'lista':[]}
-item1 = input("Atribua um elemento a lista: ")
+item1 = cadastro()
 dic_listas['lista'].append(item1)
 print(dic_listas)
 remover = input("Digite uma chave para remover: ")

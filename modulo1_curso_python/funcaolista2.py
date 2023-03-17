@@ -1,4 +1,11 @@
+executado = False
+
 def cadastro():
+    global executado
+    
+    if executado:
+        return
+    
     entradas = int(input("Quantos dados você quer inserir: "))
     minha_lista = []
     while entradas >= 1:

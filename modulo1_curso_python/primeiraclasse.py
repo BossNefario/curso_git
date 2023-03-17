@@ -1,5 +1,5 @@
 class PrimeiraClasse:
-    variavel = "rato"
+    variavel = 'rato'
 
     def metodo(self):
-        print("Esta é a mensagem dentro da classe.")
+        print(f"Esta é a mensagem dentro da classe. Com a variavel {self.variavel}")
