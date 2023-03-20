@@ -1,4 +1,4 @@
-salario = [round(1200 + i * 0.01, 2) for i in range(0, 1000001)]
+salario = [round(1200 + i * 0.01, 2) for i in range(0, 10000001)]
 dicionarioinss = {'faixa1' : 0.075, 'faixa2' : 0.09, 'faixa3' : 0.12, 'faixa4' : 0.14 , 'teto' : 992.21}
 dicionariodeducoesinss = {'faixa1' : 0, 'faixa2' : 19.53, 'faixa3' : 96.67, 'faixa4' : 173.80 , 'teto' : 877.22}
 dicionarioirrf = {'isento' : 0 , 'faixa1' : 0.075 , 'faixa2' : 0.15 , 'faixa3' : 0.225 , 'faixa4' : 0.275}
@@ -43,6 +43,8 @@ salario_liquido = [s - irrf - inss for s, irrf, inss in zip(salario, resultado_i
 salario_liquido = [round(valor, 2) for valor in salario_liquido]
 
 bruto_liquido = {}
+salario = str(salario)
+salario_liquido = str(salario_liquido)
 tuplas_salario = list(zip(salario, salario_liquido))
 bruto_liquido = dict(tuplas_salario)
 

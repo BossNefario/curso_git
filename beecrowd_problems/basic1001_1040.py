@@ -220,7 +220,7 @@ print(f'{horas}:{minutos}:{segundos}')
 '''
 
 # 1020 Idade em Dias
-
+'''
 total_dias = int(input())
 ano = total_dias // 365
 fator_ano = total_dias - (ano * 365)
@@ -229,3 +229,175 @@ dia = fator_ano % 30
 print(ano, "ano(s)")
 print(mes, "mes(es)")
 print(dia, "dia(s)")
+'''
+
+# 1021 Notas e Moedas
+
+meu_dinheiro = float(input())
+notas = [200, 100, 50, 20, 10, 5, 2]
+moedas = [1, 0.50, 0.25, 0.10, 0.05, 0.01]
+print('NOTAS:')
+for nota in notas:
+    quantidade_notas = int(meu_dinheiro / nota)
+    print(f'{quantidade_notas} nota(s) de R$ {nota:.2f}')
+    meu_dinheiro -= quantidade_notas * nota
+print('MOEDAS:')
+for moeda in moedas:
+    quantidade_moedas = int(meu_dinheiro / moeda)
+    print(f'{quantidade_moedas} moeda(s) de R$ {moeda:.2f}')
+    meu_dinheiro -= quantidade_moedas * moeda
+
+''' Solução da internet usando a mesma metodologia que usei no 1018
+n = float(input())
+
+n100 = n // 100
+n = n - n100*100
+
+n50 = n // 50
+n = n - n50*50
+
+n20 = n // 20
+n = n - n20*20
+
+n10 = n // 10
+n = n - n10*10
+
+n5 = n // 5
+n = n - n5*5
+
+n2 = n // 2
+n = n - n2*2
+
+n1 = n // 1
+n = n - n1*1
+n1=float('%.2f'% n1)
+n=float('%.2f'% n)
+
+m50 = n // 0.5
+n = n - m50*0.5
+m50=float('%.2f'% m50)
+n=float('%.2f'% n)
+
+m25 = n // 0.25
+n = n - m25*0.25
+m25=float('%.2f'% m25)
+n=float('%.2f'% n)
+
+m10 = n // 0.10
+n = n - m10*0.10
+m10=float('%.2f'% m10)
+n=float('%.2f'% n)
+
+m5 = n // 0.05
+n = n - m5*0.05
+m5=float('%.2f'% m5)
+n=float('%.2f'% n)
+
+m1 = n * 100
+m1=float('%.2f'% m1)
+n=float('%.2f'% n)
+
+print('NOTAS:')
+print('{} nota(s) de R$ 100.00'.format(int(n100)))
+print('{} nota(s) de R$ 50.00'.format(int(n50)))
+print('{} nota(s) de R$ 20.00'.format(int(n20)))
+print('{} nota(s) de R$ 10.00'.format(int(n10)))
+print('{} nota(s) de R$ 5.00'.format(int(n5)))
+print('{} nota(s) de R$ 2.00'.format(int(n2)))
+print('MOEDAS:')
+print('{} moeda(s) de R$ 1.00'.format(int(n1)))
+print('{} moeda(s) de R$ 0.50'.format(int(m50)))
+print('{} moeda(s) de R$ 0.25'.format(int(m25)))
+print('{} moeda(s) de R$ 0.10'.format(int(m10)))
+print('{} moeda(s) de R$ 0.05'.format(int(m5)))
+print('{} moeda(s) de R$ 0.01'.format(int(m1)))
+'''
+
+#1035 Teste de Seleção
+'''
+a, b, c, d = input().split()
+a = int(a)
+b = int(b)
+c = int(c)
+d = int(d)
+if b > c and d > a and c + d > a + b and c >= 0 and d >= 0 and (a % 2) != 1:
+    print("Valores aceitos")
+else:
+    print("Valores nao aceitos")
+'''
+
+#1036 Formula de Bhaskara
+'''
+import math
+
+a, b, c = input().split()
+a = float(a)
+b = float(b)
+c = float(c)
+delta = (b * b) - 4 * a * c
+if a == 0 or delta < 0:
+    print("Impossivel calcular")
+else:
+    bhaskara1 = (-b + math.sqrt(delta)) / (2 * a)
+    bhaskara2 = (-b - math.sqrt(delta)) / (2 * a)
+    print(f"R1 = {bhaskara1:.5f}")
+    print(f"R2 = {bhaskara2:.5f}")
+'''
+
+# 1037 Intervalo
+'''
+numero = float(input())
+
+if 0 <= numero <= 25:
+    print("Intervalo [0,25]")
+elif 25 < numero <= 50:
+    print("Intervalo (25,50]")
+elif 50 < numero <= 75:
+    print("Intervalo (50,75]")
+elif 75 < numero <= 100:
+    print("Intervalo (75,100]")
+else:
+    print("Fora de intervalo")
+'''
+
+# 1038 Lanche
+'''
+codigo, quantidade = input().split()
+codigo = int(codigo)
+quantidade = int(quantidade)
+meu_dicionario_precos = {1 : 4.00, 2 : 4.50, 3 : 5.00, 4 : 2.00, 5 : 1.50}
+valor = meu_dicionario_precos[codigo] * quantidade
+print(f'Total: R$ {valor:.2f}')
+'''
+
+# 1040 Media 3
+'''
+n1, n2, n3, n4 = input().split()
+n1 = float(n1)
+n2 = float(n2)
+n3 = float(n3)
+n4 = float(n4)
+peso1 = 2
+peso2 = 3
+peso3 = 4
+peso4 = 1
+media = ((n1 * peso1) + (n2 * peso2) + (n3 * peso3) + (n4 * peso4)) / (peso1 + peso2 + peso3 + peso4)
+if media >= 7:
+    print(f'Media: {media:.1f}')
+    print("Aluno aprovado.")
+elif 5.0 <= media < 7:
+    exame = float(input())
+    print(f'Media: {media:.1f}')
+    print("Aluno em exame.")
+    print(f'Nota do exame: {exame:.1f}')
+    nova_media = (exame + media) / 2
+    if nova_media >= 5:
+        print("Aluno aprovado.")
+        print(f'Media final: {nova_media:.1f}')
+    else:
+        print("Aluno reprovado.")
+        print(f'Media final: {nova_media:.1f}')
+else:
+    print(f'Media: {media:.1f}')
+    print("Aluno reprovado.")
+'''

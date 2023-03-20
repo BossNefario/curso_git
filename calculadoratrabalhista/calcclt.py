@@ -64,6 +64,22 @@ print(f'Além disso, não ocorrem os recolhimentos de férias, Décimo Terceiro 
 
 from bruto_liquido import *
 
+salario_e_recolhidos = str(salario_e_recolhidos)
+
+def buscar_bruto(bruto_liquido, salario_e_recolhidos):
+    for chave in bruto_liquido:
+        if bruto_liquido == salario_e_recolhidos:
+            return chave
+print(buscar_bruto(bruto_liquido, salario_e_recolhidos))
+#print(bruto_liquido, salario_e_recolhidos)
+
+def buscar_liquido(bruto_liquido, salario_e_recolhidos):
+    x = float(input("digite o salario bruto: "))
+    for chave in bruto_liquido:
+        if chave == x:
+            return bruto_liquido[chave]
+
+'''
 def buscar_bruto(bruto_liquido, salario_e_recolhidos):
     for chave in bruto_liquido:
         if (bruto_liquido[chave] < salario_e_recolhidos + 0.1) and (bruto_liquido[chave] > salario_e_recolhidos - 0.1):
@@ -76,5 +92,6 @@ def buscar_liquido(bruto_liquido, salario_e_recolhidos):
     for chave in bruto_liquido:
         if chave < x + 0.1 and chave > x - 0.1:
             return bruto_liquido[chave]
+'''
 print(buscar_liquido(bruto_liquido, salario_e_recolhidos))
 #print(bruto_liquido, salario_e_recolhidos)
