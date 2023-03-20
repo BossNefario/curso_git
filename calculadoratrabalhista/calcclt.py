@@ -62,39 +62,19 @@ print(f'Valor Total considerando sálario líquido e demais valores recolhidos p
 print(f'Recebendo como PJ, você terá que recolher Imposto de Renda e INSS (claro se quiser se aposentar ou ainda não for aposentado)')
 print(f'Além disso, não ocorrem os recolhimentos de férias, Décimo Terceiro e FGTS')
 
+from bruto_liquido import *
 
-# pra definir se o modelo de PJ é vantajoso ou não para o profissional precisamos fazer uma avaliacao
-# sobre o salario liquido mais os recebidos. Para isso vou construir uma tabela que use os valores obtidos
-# de salario liquido frente aos valores de referencia na tabela do INSS e IRRF simultaneamente.
-# valores de referência de salario liquido [1204.35, 1752.14, 2228.96, 2514.7, 3189.74, 3260.36, 3772.0, 5320.09]
-# utilizei a calculadora auxiliar pra definir esses valores. 17/03/2023
+def buscar_bruto(bruto_liquido, salario_e_recolhidos):
+    for chave in bruto_liquido:
+        if (bruto_liquido[chave] < salario_e_recolhidos + 0.1) and (bruto_liquido[chave] > salario_e_recolhidos - 0.1):
+            return chave
+print(buscar_bruto(bruto_liquido, salario_e_recolhidos))
+#print(bruto_liquido, salario_e_recolhidos)
 
-if salario_e_recolhidos < 1204.35:
-    salario_bruto_inss = salario_e_recolhidos / (1 - dicionarioinss['faixa1']) - dicionariodeducoesinss['faixa1']
-    salario_bruto_irrf = salario_e_recolhidos
-elif salario_e_recolhidos <= 1752.14:
-    salario_bruto_inss = salario_e_recolhidos / (1 - dicionarioinss['faixa2']) - dicionariodeducoesinss['faixa2']
-    salario_bruto_irrf = salario_e_recolhidos
-elif salario_e_recolhidos <= 2228.96:
-    salario_bruto_inss = salario_e_recolhidos / (1 - dicionarioinss['faixa2']) - dicionariodeducoesinss['faixa2']
-    salario_bruto_irrf = salario_e_recolhidos / (1 - dicionarioirrf['faixa1']) - dicionariodeducoesirrf['faixa1']
-elif salario_e_recolhidos <= 2514.70:
-    salario_bruto_inss = salario_e_recolhidos / (1 - dicionarioinss['faixa3']) - dicionariodeducoesinss['faixa3']
-    salario_bruto_irrf = salario_e_recolhidos / (1 - dicionarioirrf['faixa1']) - dicionariodeducoesirrf['faixa1']
-elif salario_e_recolhidos <= 3189.74:
-    salario_bruto_inss = salario_e_recolhidos / (1 - dicionarioinss['faixa3']) - dicionariodeducoesinss['faixa3']
-    salario_bruto_irrf = salario_e_recolhidos / (1 - dicionarioirrf['faixa2']) - dicionariodeducoesirrf['faixa2']
-elif salario_e_recolhidos <= 3260.36:
-    salario_bruto_inss = salario_e_recolhidos / (1 - dicionarioinss['faixa3']) - dicionariodeducoesinss['faixa3']
-    salario_bruto_irrf = salario_e_recolhidos / (1 - dicionarioirrf['faixa3']) - dicionariodeducoesirrf['faixa3']
-elif salario_e_recolhidos <= 3772.00:
-    salario_bruto_inss = salario_e_recolhidos / (1 - dicionarioinss['faixa4']) - dicionariodeducoesinss['faixa4']
-    salario_bruto_irrf = salario_e_recolhidos / (1 - dicionarioirrf['faixa3']) - dicionariodeducoesirrf['faixa3']
-elif salario_e_recolhidos <= 5320.09:
-    salario_bruto_inss = (salario_e_recolhidos - dicionariodeducoesinss['faixa4']) * (1 - dicionarioinss['faixa4']) 
-    salario_bruto_irrf = (salario_e_recolhidos - dicionariodeducoesirrf['faixa4']) * (1 - dicionarioirrf['faixa4']) 
-else:
-    salario_bruto_inss = dicionarioinss['teto']
-    salario_bruto_irrf = salario_e_recolhidos * (1 - dicionarioirrf['faixa4']) - dicionariodeducoesirrf['faixa4']
-salario_bruto = salario_e_recolhidos + salario_bruto_inss + salario_bruto_irrf
-print(f'O salário bruto para PJ onde o valor seria igual ao da CLT seria: R$ {salario_bruto:.2f}.')
+def buscar_liquido(bruto_liquido, salario_e_recolhidos):
+    x = float(input("digite o salario bruto: "))
+    for chave in bruto_liquido:
+        if chave < x + 0.1 and chave > x - 0.1:
+            return bruto_liquido[chave]
+print(buscar_liquido(bruto_liquido, salario_e_recolhidos))
+#print(bruto_liquido, salario_e_recolhidos)
