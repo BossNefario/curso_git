@@ -232,9 +232,9 @@ print(dia, "dia(s)")
 '''
 
 # 1021 Notas e Moedas
-
+'''
 meu_dinheiro = float(input())
-notas = [200, 100, 50, 20, 10, 5, 2]
+notas = [100, 50, 20, 10, 5, 2]
 moedas = [1, 0.50, 0.25, 0.10, 0.05, 0.01]
 print('NOTAS:')
 for nota in notas:
@@ -246,7 +246,7 @@ for moeda in moedas:
     quantidade_moedas = int(meu_dinheiro / moeda)
     print(f'{quantidade_moedas} moeda(s) de R$ {moeda:.2f}')
     meu_dinheiro -= quantidade_moedas * moeda
-
+'''
 ''' Solução da internet usando a mesma metodologia que usei no 1018
 n = float(input())
 
@@ -371,7 +371,7 @@ print(f'Total: R$ {valor:.2f}')
 '''
 
 # 1040 Media 3
-'''
+
 n1, n2, n3, n4 = input().split()
 n1 = float(n1)
 n2 = float(n2)
@@ -400,4 +400,3 @@ elif 5.0 <= media < 7:
 else:
     print(f'Media: {media:.1f}')
     print("Aluno reprovado.")
-'''
