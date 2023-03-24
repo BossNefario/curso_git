@@ -4,7 +4,7 @@ cursor = conexao.cursor()
 sql = '''
 CREATE TABLE categoria (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	nome TEXT(50) NOT NULL
+	nome VARCHAR (100) NOT NULL
 );
 '''
 cursor.execute(sql)
@@ -13,11 +13,11 @@ conexao.commit()
 sql = '''
 CREATE TABLE tafera (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	nome TEXT(50) NOT NULL,
-	categoria_id INTEGER,
-	"data" TEXT(10),
-	status TEXT(15) NOT NULL,
-	CONSTRAINT tafera_FK FOREIGN KEY (categoria_id) REFERENCES categoria(categoria)
+	nome VARCHAR(50) NOT NULL,
+	categoria_id INTEGER NOT NULL,
+	"data" VARCHAR (10),
+	status Bool NOT NULL,
+		CONSTRAINT tafera_FK FOREIGN KEY (categoria_id) REFERENCES categoria(id)
 );
 '''
 cursor.execute(sql)
