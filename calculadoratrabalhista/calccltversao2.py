@@ -21,22 +21,23 @@ resultado_inss = calculadora_inss()
 salario_descontado_inss = salario - resultado_inss
 
 def calculadora_irrf_mensal():
+    irrf = 0
     if salario_descontado_inss >= faixas_irrf[3]:
         irrf = (salario_descontado_inss - faixas_irrf[3]) * dicionarioirrf['faixa4']
         irrf += (faixas_irrf[3] - faixas_irrf[2]) * dicionarioirrf['faixa3']
         irrf += (faixas_irrf[2] - faixas_irrf[1]) * dicionarioirrf['faixa2']
         irrf += (faixas_irrf[1] - faixas_irrf['isento']) * dicionarioirrf['faixa1']
-    elif salario_descontado_inss >= dicionarioirrf['faixa3']:
+    elif salario_descontado_inss >= faixas_irrf[2]:
         irrf += (salario_descontado_inss - faixas_irrf[2]) * dicionarioirrf['faixa3']
         irrf += (faixas_irrf[2] - faixas_irrf[1]) * dicionarioirrf['faixa2']
         irrf += (faixas_irrf[1] - faixas_irrf['isento']) * dicionarioirrf['faixa1']
-    elif salario_descontado_inss >= dicionarioirrf['faixa2']:
+    elif salario_descontado_inss >= faixas_irrf[1]:
         irrf += (salario_descontado_inss - faixas_irrf[1]) * dicionarioirrf['faixa2']
         irrf += (faixas_irrf[1] - faixas_irrf['isento']) * dicionarioirrf['faixa1']
-    elif salario_descontado_inss >= dicionarioirrf['faixa1']:
+    elif salario_descontado_inss >= faixas_irrf['isento']:
         irrf += (salario_descontado_inss - faixas_irrf['isento']) * dicionarioirrf['faixa1']
     else:
-        irrf = faixas_irrf['isento']
+        irrf = dicionarioirrf['isento']
     return irrf
 resultado_irrf = calculadora_irrf_mensal()
 salario_liquido = salario_descontado_inss - resultado_irrf
@@ -66,3 +67,14 @@ print(f'IRRF: R$ {resultado_irrf:.2f}')
 print(f'Salario Liquido: R$ {salario_liquido:.2f}')
 print(f'FGTS + Férias + 13º Salario: R$ {recolhido_pela_empresa:.2f}')
 print(f'Total dos direitos trabalhistas: R$ {total_com_direitos_trabalhistas:.2f}')
+'''
+from basedereferencia_brutoliquido import *
+
+def buscar_bruto(bruto_liquido, total_com_direitos_trabalhistas):
+    for chave in bruto_liquido:
+        if bruto_liquido == total_com_direitos_trabalhistas:
+            return chave
+
+resultado_pj = buscar_bruto()
+print(resultado_pj)
+'''
