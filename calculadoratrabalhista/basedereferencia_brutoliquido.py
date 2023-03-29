@@ -1,4 +1,4 @@
-salario = [round(1200 + i * 0.01, 2) for i in range(0, 1000000001)]
+salario = [round(1200 + i * 0.01, 2) for i in range(0, 10000001)]
 dicionarioinss = {'faixa1' : 0.075, 'faixa2' : 0.09, 'faixa3' : 0.12, 'faixa4' : 0.14 , 'teto' : 877.25}
 dicionariodeducoesinss = {'faixa1' : 0, 'faixa2' : 19.53, 'faixa3' : 96.67, 'faixa4' : 173.80}
 dicionarioirrf = {'isento' : 0 , 'faixa1' : 0.075 , 'faixa2' : 0.15 , 'faixa3' : 0.225 , 'faixa4' : 0.275}
@@ -59,3 +59,17 @@ for x, y in zip(salario_descontado_inss, resultado_irrf):
 bruto_liquido = {}
 tuplas_salario = list(zip(salario, salario_liquido))
 bruto_liquido = dict(tuplas_salario)
+'''
+def obter_chave_por_valor(bruto_liquido, valor):
+    for chave, val in bruto_liquido.items():
+        if val == valor:
+            return chave
+    raise ValueError('Valor não encontrado no dicionário')
+
+valor = 1110.79
+chave = obter_chave_por_valor(bruto_liquido, valor)
+
+print(f'A chave correspondente ao valor {valor} é {chave}')
+'''
+
+

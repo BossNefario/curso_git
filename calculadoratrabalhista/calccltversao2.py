@@ -66,15 +66,16 @@ print(f'INSS: R$ {resultado_inss:.2f}')
 print(f'IRRF: R$ {resultado_irrf:.2f}')
 print(f'Salario Liquido: R$ {salario_liquido:.2f}')
 print(f'FGTS + Férias + 13º Salario: R$ {recolhido_pela_empresa:.2f}')
-print(f'Total dos direitos trabalhistas: R$ {total_com_direitos_trabalhistas:.2f}')
-'''
+print(f'Total com os direitos trabalhistas: R$ {total_com_direitos_trabalhistas:.2f}')
+
 from basedereferencia_brutoliquido import *
 
-def buscar_bruto(bruto_liquido, total_com_direitos_trabalhistas):
-    for chave in bruto_liquido:
-        if bruto_liquido == total_com_direitos_trabalhistas:
+def obter_chave_por_valor():
+    for chave, val in bruto_liquido.items():
+        if val == valor:
             return chave
 
-resultado_pj = buscar_bruto()
-print(resultado_pj)
-'''
+valor = round(total_com_direitos_trabalhistas, 2)
+chave = obter_chave_por_valor()
+
+print(f'O salario bruto para PJ equivalente seria: R$ {chave}')
