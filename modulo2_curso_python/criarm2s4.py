@@ -30,6 +30,7 @@ CREATE TABLE item_pedido (
 	pedido_id INTEGER NOT NULL,
     produto TEXT(100),
     valor REAL,
+    quantidade INTEGER,
 	CONSTRAINT item_pedido_FK FOREIGN KEY (pedido_id) REFERENCES pedido(id)
 );
 '''
