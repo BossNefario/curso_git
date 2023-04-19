@@ -1,0 +1,9 @@
+body {
+    background-color: lightblue
+}
+
+.profile-imagem {
+    border-style: solid;
+    border-color: black;
+    border-radius: 50%;
+}
